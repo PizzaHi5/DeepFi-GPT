@@ -1,0 +1,15 @@
+node_modules/
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Secrets
+.env.enc
+*.env
+.env.notes
+
+#Hardhat files
+cache
+artifacts
+
