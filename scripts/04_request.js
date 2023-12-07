@@ -22,15 +22,15 @@ const sendRequest = async () => {
     .readFileSync(path.resolve(__dirname, "../source.js"))
     .toString();
 
-  const prompt = await fs.promises.readFile('prompts/prompt.txt', 'utf8');
-  const args = [prompt];
+  const input = await fs.promises.readFile('prompts/input.txt', 'utf8');
+  const args = [input];
   const callbackGasLimit = 300_000;
 
   console.log("\n Sending the Request....")
   const requestTx = await functionsConsumer.sendRequest(
     source,
-    Location.DONHosted,
-    encryptedSecretsRef,
+    Location.Inline,
+    [], //made this empty since secrets not needed
     args,
     [], // bytesArgs can be empty
     subscriptionId,

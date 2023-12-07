@@ -1,0 +1,6 @@
+{
+  "apiUrl": "http://ethtrader.pythonanywhere.com/trading_signal",
+  "requestData": {
+    "entry_price": ""
+  }
+}

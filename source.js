@@ -1,26 +1,26 @@
-const gptPrompt = args[0];
-
-const postData = {
-  model: "gpt-3.5-turbo",
-  messages: [{ role: "user", content: gptPrompt }],
-  temperature: 0,
+// Data to be sent in the request body
+const requestData = {
+    "entry_price": "",
 };
 
-const openAIResponse = await Functions.makeHttpRequest({
-  url: "https://api.openai.com/v1/chat/completions",
-  method: "POST",
-  headers: {
-    Authorization: `Bearer ${secrets.apiKey}`,
-    "Content-Type": "application/json",
-  },
-  data: postData,
+const postData = {
+    body: JSON.stringify(requestData),
+};
+
+const aiTraderResponse = await Functions.makeHttpRequest({
+    url: "http://ethtrader.pythonanywhere.com/trading_signal",
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    data: requestData,
 });
 
-if (openAIResponse.error) {
-  throw new Error(JSON.stringify(openAIResponse));
+if(aiTraderResponse.error) {
+    throw new Error(JSON.stringify(aiTraderResponse));
 }
 
-const result = openAIResponse.data.choices[0].message.content;
+const result = aiTraderResponse.signal;
 
 console.log(result);
 return Functions.encodeString(result);
