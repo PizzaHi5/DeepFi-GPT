@@ -12,7 +12,7 @@ async function readDataFromFile(filePath) {
 
 async function makeApiRequest() {
   // Specify the file path where API URL and request data are stored
-  const filePath = 'prompts/test_https.txt';
+  const filePath = 'args/test_https.txt';
 
   try {
     // Read API URL and request data from file

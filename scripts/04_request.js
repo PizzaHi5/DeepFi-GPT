@@ -22,7 +22,7 @@ const sendRequest = async () => {
     .readFileSync(path.resolve(__dirname, "../source.js"))
     .toString();
 
-  const input = await fs.promises.readFile('prompts/input.txt', 'utf8');
+  const input = await fs.promises.readFile('args/input.txt', 'utf8');
   const args = [input];
   const callbackGasLimit = 300_000;
 
