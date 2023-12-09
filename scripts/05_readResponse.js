@@ -13,7 +13,7 @@ const readResponse = async () => {
 
   const decodedResponse = decodeResult(responseBytes, ReturnType.string)
 
-  console.log("\nDecoded response from OpenAI/ChatGPT:", decodedResponse)
+  console.log("\nOur API response:", decodedResponse)
 };
 
 readResponse().catch(err => {

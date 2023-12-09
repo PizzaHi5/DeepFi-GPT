@@ -1,4 +1,3 @@
-// Data to be sent in the request body
 const requestData = {
     "entry_price": "",
 };
@@ -16,7 +15,7 @@ if(aiTraderResponse.error) {
     throw new Error(JSON.stringify(aiTraderResponse));
 }
 
-const result = aiTraderResponse.data.signal;
+const action = aiTraderResponse.data.signal;
 
-console.log(result);
-return Functions.encodeString(result);
+console.log(action);
+return Functions.encodeString(action);

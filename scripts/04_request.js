@@ -26,7 +26,7 @@ const sendRequest = async () => {
   const args = [input];
   const callbackGasLimit = 300_000;
 
-  console.log("\n Sending the Request....")
+  console.log("\n Sending the Request....");
   const requestTx = await functionsConsumer.sendRequest(
     source,
     Location.Inline,
